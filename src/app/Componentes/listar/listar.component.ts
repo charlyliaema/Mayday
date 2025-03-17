@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ServicioService } from '../../service/servicio.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { Productos } from '../Productos/Productos';
 
 @Component({
@@ -25,8 +25,22 @@ export class ListarComponent {
   listaProd(){
     this.service.listar().subscribe(data =>{
       this.lista = data;
-      console.log("Lista de productos:")
-    })
+      console.log("Lista de productos:"+JSON.stringify(this.lista));
+    });
   }  
+
+  inicio(){
+    this.router.navigate(["inicio"]);
+  }
+
+  Editar(producto:Productos){
+    localStorage.setItem("id",producto.id.toString());
+    this.router.navigate(['editar']);
+  }
+
+  eliminar(producto:Productos){
+    localStorage.setItem("id",producto.id.toString());
+    this.router.navigate(['elimnar']);
+  }
 
 }
