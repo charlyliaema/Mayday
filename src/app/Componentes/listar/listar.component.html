@@ -1,0 +1,43 @@
+<br><br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Lista de Productos</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <div  class="table-responsive">
+            <table class="table table-secondary">
+                <thead style="text-align: center;">
+                    <tr>
+                        <th>Id</th>
+                        <th>marca</th>
+                        <th>nombreProducto</th>
+                        <th>color</th>
+                        <th>talla</th>
+                        <th>caracteristicas</th>
+                        <th>precio</th>
+
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of lista">
+                        <td>{{p.id}}</td>
+                        <td>{{p.marca}}</td>
+                        <td>{{p.nombreProducto}}</td>
+                        <td>{{p.color}}</td>
+                        <td>{{p.talla}}</td>
+                        <td>{{p.caracteristicas}}</td>
+                        <td>{{p.precio}}</td>
+                        <td><i class="bi bi-arrow-clockwise"(click)="Editar(p)"></i></td>
+                        <td><i class="bi bi-trash3" (click)="eliminar(p)"></i></td>
+
+                    </tr>                    
+                </tbody>
+            </table>
+            <button class="btn btn-outline-success" (click)="inicio()">Regresar <i class="bi bi-house-door-fill"></i></button>
+        </div>
+    </div>
+</div>
